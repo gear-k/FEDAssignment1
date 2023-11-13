@@ -6,17 +6,23 @@ header {
 }
 
 nav {
-  width: 100%;
-  overflow: hidden;
+  display: flex;
+  align-items: center; /* Vertically align items in the center */
+  justify-content: center; /* Horizontally align items in the center */
   background: black;
-  padding: 35px;
-  text-align: right;
+  padding: 0px;
 }
 
 nav a {
-  float: center;
-  padding: 10px;
+  display: inline-block;
+  padding: 20px;
   color: white;
-  text-decoration: solid;
   font-size: 15px;
+  text-decoration: none;
+}
+
+nav img {
+  height: 70px; /* Adjust as needed */
+  vertical-align: middle;
+  margin-right: 10px; /* Add some space after the logo, if needed */
 }
