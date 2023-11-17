@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@600&family=Poppins:wght@300;400&family=Roboto:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Montserrat:ital,wght@1,300&family=Noto+Sans+JP:wght@500&family=Playfair+Display:wght@500&family=Roboto:wght@100&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
 
 body {
-  font-family: "Noto Sans JP", sans-serif;
   margin: 0;
   background-color: #f7f4ea;
 }
@@ -14,7 +13,7 @@ nav {
   padding: 0px;
   padding-left: 150px; /* Add padding to the left */
   border-bottom: 0.5px solid rgb(128, 128, 128);
-  font-family: "Roboto", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
 }
 
@@ -22,7 +21,7 @@ nav a {
   display: inline-block;
   padding: 10px 20px;
   color: rgb(0, 0, 0);
-  font-size: 14px;
+  font-size: 20px;
   text-decoration: none;
   font-weight: 750;
 }
@@ -45,13 +44,15 @@ nav a:hover {
 }
 
 .nav-icons i {
-  font-size: 20px; /* Adjust icon size as needed */
+  font-size: 24 px; /* Example size, adjust as needed */
 }
 
 nav img {
   height: 60px; /* Adjust as needed */
-  margin-right: 10px; /* Add some space after the logo, if needed */
+  margin-right: 20px; /* Add some space after the logo, if needed */
   vertical-align: middle;
+  width: auto;
+  height: 70px;
 }
 
 footer {
