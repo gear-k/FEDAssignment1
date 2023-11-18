@@ -4,13 +4,15 @@
 body {
   margin: 0;
   background-color: #f7f4ea;
+  /* font-family: "Montserrat", sans-serif; */
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 nav {
   display: flex;
   align-items: center;
   background: #f7f4ea;
-  padding: 0px;
+
   padding-left: 150px; /* Add padding to the left */
   border-bottom: 0.5px solid rgb(128, 128, 128);
   font-family: "Inter", sans-serif;
@@ -27,7 +29,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #89ade2;
+  color: #604ce4;
 }
 
 .nav-icons {
@@ -36,7 +38,7 @@ nav a:hover {
 }
 
 .nav-icons:hover {
-  color: #89ade2;
+  color: #604ce4;
 }
 
 .nav-icons a {
@@ -44,7 +46,7 @@ nav a:hover {
 }
 
 .nav-icons i {
-  font-size: 24 px; /* Example size, adjust as needed */
+  font-size: 27px; /* Example size, adjust as needed */
 }
 
 nav img {
@@ -52,7 +54,7 @@ nav img {
   margin-right: 20px; /* Add some space after the logo, if needed */
   vertical-align: middle;
   width: auto;
-  height: 70px;
+  height: 100px;
 }
 
 footer {
@@ -93,7 +95,7 @@ footer {
 }
 
 .sales {
-  background-color: #80a1d4;
+  background-color: #604ce4;
   color: white;
   text-align: center;
 
@@ -108,4 +110,17 @@ footer {
 
 .sales p {
   margin: 0;
+}
+
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(-100%);
+  transition: all 1.5s;
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
 }
