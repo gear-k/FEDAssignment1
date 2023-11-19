@@ -1,7 +1,6 @@
+/* this is for when the user scrolls to, the user will see the text fade in */
 const observer = new IntersectionObserver((entries) => {
-  // Corrected the placement of parentheses
   entries.forEach((entry) => {
-    // Corrected the placement of parentheses
     console.log(entry);
     if (entry.isIntersecting) {
       // Corrected the typo

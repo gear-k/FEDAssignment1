@@ -3,22 +3,28 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
   <link rel="stylesheet" href="stylesheet.css" />
   <title>Shopping</title>
+  <script>
+  </script>
   <style>
+    /* there is a problem for when the user windows scaling is above 100%, the website breaks */
+    .image-item img {
+      width: 100%;
+    }
+
     .image-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       /* Default to 3 columns */
-      gap: 30px;
-      padding-top: 30px;
-      padding-bottom: 30px;
-      margin-right: 50px;
+      gap: 1.875rem;
+      margin-right: 3.125rem;
       width: max-content;
-      margin-left: 270px;
+      margin-left: 16.875rem;
       /* Adjust based on sidebar width */
-      padding: 20px;
+      padding: 1.25rem;
     }
 
     .image-item {
@@ -27,7 +33,7 @@
     }
 
     .image-item img {
-      width: 500px;
+      width: 31.25rem;
       /* Fixed width */
       height: auto;
       /* Maintain aspect ratio */
@@ -40,7 +46,7 @@
       margin: 0;
       word-wrap: break-word;
       /* Ensures long words don't overflow */
-      max-width: 500px;
+      max-width: 31.25rem;
       /* Set to the same width as your images */
       height: auto;
       /* Adjust height automatically based on content */
@@ -51,41 +57,12 @@
       text-align: left;
     }
 
-    @media screen and (max-width: 768px) {
-      .image-grid {
-        grid-template-columns: repeat(2, 1fr);
-        /* 2 columns for medium screens */
-      }
-
-      .image-grid img {
-        width: 100%;
-      }
-    }
-
-
-    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-      .image-grid {
-        grid-template-columns: 1fr;
-        width: 70%;
-        /* 1 column for small screens */
-      }
-
-      .image-item img {
-        width: 100%;
-        /* Full width images on small screens */
-      }
-    }
-
-
-
-
-
     .sidebar {
-      padding-left: 20px;
+      padding-left: 1.042vw;
       position: absolute;
       /* making sure it stays at the top */
-      top: 190px;
-      width: 210px;
+      top: 9.896vw;
+      width: 10.938vw;
 
     }
 
@@ -147,20 +124,67 @@
       list-style: none;
       padding: 0;
     }
+
+    @media screen and (max-width: 768px) {
+      .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns for medium screens */
+      }
+
+      .image-grid img {
+        width: 100%;
+      }
+    }
+
+
+    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+      .image-grid {
+        grid-template-columns: 1fr;
+        width: 70%;
+        /* 1 column for small screens */
+      }
+
+      .image-item img {
+        width: 100%;
+        /* Full width images on small screens */
+      }
+    }
+
+    @media screen and (max-width: 1200px) {
+      .sidebar {
+        display: none;
+      }
+
+      .image-grid {
+        margin-left: 0;
+        width: 100%;
+
+      }
+
+      .image-item img {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 
 <body>
   <nav>
     <div class="nav-links">
-      <a href="index.html"><img src="images/logo.png" alt="Logo" /></a>
-      <a href="google.com">Men</a>
+      <a href="index.html"><img src="images/Entr-logos/Entr-logos_transparent.png" alt="Logo" /></a>
+      <a href="shopping.html">Men</a>
       <a href="youtube.com">Women</a>
       <a href="twitter.com">Kids</a>
       <a href="instagram.com">Sale</a>
       <a href="reddit.com">What's New</a>
       <a href="aboutus.html">About Us</a>
     </div>
+    
+    <!-- search bar -->
+    <form class="search-form">
+      <input type="text" placeholder="Search..." id="searchInput">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
     <!-- Font Awesome Icons -->
     <div class="nav-icons">
       <a href="#favourites"><i class="fa-solid fa-heart"></i></a>

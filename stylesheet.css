@@ -4,16 +4,19 @@
 body {
   margin: 0;
   background-color: #f7f4ea;
-  /* font-family: "Montserrat", sans-serif; */
+
   font-family: "Noto Sans JP", sans-serif;
 }
+
+
+
 
 nav {
   display: flex;
   align-items: center;
   background: #f7f4ea;
 
-  padding-left: 150px; /* Add padding to the left */
+  padding-left: 7.813vw; /* Add padding to the left */
   border-bottom: 0.5px solid rgb(128, 128, 128);
   font-family: "Inter", sans-serif;
   font-weight: 500;
@@ -33,7 +36,7 @@ nav a:hover {
 }
 
 .nav-icons {
-  margin-left: auto; /* Push the icons to the right */
+   
   display: inline-block;
 }
 
@@ -55,6 +58,47 @@ nav img {
   vertical-align: middle;
   width: auto;
   height: 100px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center; /* Align items vertically */
+  margin-left: auto;
+  background: #f5f5f5;
+  border-radius: 20px; /* Adjusted for rounded corners */
+  border: 1px solid #ccc;
+  padding-right: 0px; /* Padding to prevent the button from sticking to the edge */
+}
+
+.search-form input[type="text"] {
+  flex-grow: 1; /* Allows input to take available space */
+  padding: 4px 8px;
+  font-size: 17px;
+  border-radius: 20px 0 0 20px; /* Rounded left corners */
+  border: none; /* Removes border */
+  background-color: #f5f5f5;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.search-form button {
+  padding: 6px 10px;
+  border-radius: 0 20px 20px 0; /* Rounded right corners */
+  border: none; /* Removes border */
+  cursor: pointer;
+  background-color: #f5f5f5;
+  
+}
+
+/* Adjust icon size and color inside the button */
+.search-form button i {
+  font-size: 25px;
+  color:#000000;
+}
+
+.search-form input[type="text"]:focus {
+  outline: none;
+
+
 }
 
 footer {
