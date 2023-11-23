@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <title>Contact Us</title>
+    <style>
+      .main-container {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .content-container {
+        display: flex;
+        justify-content: space-between;
+      }
+      .left-column,
+      .right-column {
+        flex: 1;
+        padding: 20px;
+      }
+
+      .right-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .contact-info,
+      .business-hours {
+        margin-bottom: 20px;
+      }
+      .contact-form form {
+        max-width: 500px;
+        margin: auto;
+      }
+      .contact-form label {
+        display: block;
+        text-align: left;
+        margin-bottom: -20px; /* Adjust this value as needed for consistent spacing */
+      }
+      .contact-form input[type="text"],
+      .contact-form input[type="email"],
+      .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        font-family: "Noto Sans JP", sans-serif;
+      }
+      .contact-form input[type="submit"] {
+        width: auto;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+
+      .name-fields {
+        display: flex;
+        gap: 10px; /* Space between first name and last name fields */
+        box-sizing: border-box;
+      }
+      .name-field {
+        flex: 1;
+      }
+
+      .name-field label {
+        padding-top: 10px;
+        padding-bottom: 22px;
+        text-align: left; /* Aligns the text to the left */
+      }
+
+      .contact-form input[type="submit"] {
+        background-color: #604ce4;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        font-family: "Times New Roman", Times, serif;
+        font-size: 16px;
+      }
+      #message {
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- nav bar -->
+    <nav>
+      <div class="nav-links">
+        <a href="index.html"
+          ><img src="images/Entr-logos/Entr-logos_transparent.png" alt="Logo"
+        /></a>
+        <a href="shopping.html">Men</a>
+        <a href="youtube.com">Women</a>
+        <a href="twitter.com">Kids</a>
+        <a href="instagram.com">Sale</a>
+        <a href="reddit.com">What's New</a>
+        <a href="aboutus.html">About Us</a>
+      </div>
+
+      <!-- search bar -->
+      <form class="search-form">
+        <input type="text" placeholder="Search..." id="searchInput" />
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+      <!-- Font Awesome Icons -->
+      <div class="nav-icons">
+        <a href="#favourites"><i class="fa-solid fa-heart"></i></a>
+        <a href="#account"><i class="fa-solid fa-user"></i></a>
+        <a href="#shopping"><i class="fa-solid fa-bag-shopping"></i></a>
+      </div>
+    </nav>
+
+    <div class="main-container">
+      <div class="middle-align">
+        <header>
+          <h1>Contact Us</h1>
+          <p>Get in touch with us for any questions or feedback</p>
+        </header>
+      </div>
+
+      <div class="content-container">
+        <div class="left-column">
+          <div class="contact-form">
+            <h2>Contact Form</h2>
+            <form action="submit_form.php" method="post">
+              <div class="name-fields">
+                <div class="name-field">
+                  <label for="first-name">First Name:</label>
+                  <input
+                    type="text"
+                    id="first-name"
+                    name="first-name"
+                    required
+                  />
+                </div>
+                <div class="name-field">
+                  <label for="last-name">Last Name:</label>
+                  <input type="text" id="last-name" name="last-name" required />
+                </div>
+              </div>
+
+              <label for="email">Email:</label><br />
+              <input type="email" id="email" name="email" required /><br />
+
+              <label for="subject">Subject:</label><br />
+              <input type="text" id="subject" name="subject" required /><br />
+
+              <label for="message">Message:</label><br />
+              <textarea id="message" name="message" required></textarea><br />
+
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
+        </div>
+
+        <div class="right-column">
+          <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p>
+              <strong>Address:</strong> Your Company Address, City, State, Zip
+            </p>
+            <p><strong>Phone:</strong> Your Business Phone Number</p>
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:youremail@example.com">youremail@example.com</a>
+            </p>
+          </div>
+
+          <div class="business-hours">
+            <h2>Business Hours</h2>
+            <p>Monday to Friday: 9 AM - 5 PM</p>
+            <p>Saturday: 10 AM - 2 PM</p>
+            <p>Sunday: Closed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
