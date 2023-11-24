@@ -4,12 +4,11 @@
 body {
   margin: 0;
   background-color: #f7f4ea;
-
+  min-height: 100vh; /* 100% of the viewport height */
   font-family: "Noto Sans JP", sans-serif;
+  display: flex;
+  flex-direction: column;
 }
-
-
-
 
 nav {
   display: flex;
@@ -36,7 +35,6 @@ nav a:hover {
 }
 
 .nav-icons {
-   
   display: inline-block;
 }
 
@@ -77,7 +75,7 @@ nav img {
   border-radius: 20px 0 0 20px; /* Rounded left corners */
   border: none; /* Removes border */
   background-color: #f5f5f5;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .search-form button {
@@ -86,19 +84,16 @@ nav img {
   border: none; /* Removes border */
   cursor: pointer;
   background-color: #f5f5f5;
-  
 }
 
 /* Adjust icon size and color inside the button */
 .search-form button i {
   font-size: 25px;
-  color:#000000;
+  color: #000000;
 }
 
 .search-form input[type="text"]:focus {
   outline: none;
-
-
 }
 
 footer {
@@ -108,7 +103,8 @@ footer {
   padding: 25px;
   background-color: rgb(0, 0, 0);
   color: white;
-  flex: 1; /* Each section takes equal space */
+
+  flex-shrink: 0;
 }
 
 .footer-left,
