@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <title>Contact Us</title>
+    <style>
+      .thumbnails {
+        display: flex;
+        flex-direction: column; /* Align thumbnails vertically */
+        gap: 10px; /* Space between thumbnails */
+        cursor: pointer; /* Change cursor on hover over thumbnails */
+      }
+
+      .thumbnails img {
+        width: 100px; /* Set a fixed width for thumbnails */
+        height: 100px; /* Maintain aspect ratio */
+        margin-right: -40px;
+      }
+
+      .itempicture img {
+        width: 550px; /* Adjust as per your existing style */
+        height: 550px;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        height: 100vh;
+        margin-top: 100px;
+      }
+
+      .itemtext {
+        flex-basis: 500px; /* Or your desired fixed size */
+        flex-grow: 0;
+        flex-shrink: 0;
+        overflow: auto;
+      }
+
+      .colorimg {
+        display: flex;
+
+        gap: 20px;
+      }
+
+      .colorimg img {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+      }
+
+      .size-selector {
+        display: grid; /* Aligns buttons in a row */
+        gap: 10px; /* Adds space between the buttons */
+
+        grid-template-columns: repeat(4, 1fr); /* Creates four columns */
+      }
+
+      .size-btn {
+        flex: 1 0 22%; /* Flex grow, flex shrink, and basis */
+        padding: 10px 45px; /* Adds padding inside the buttons */
+        border: 1px solid #ccc; /* Border for buttons */
+        background-color: #ffffff; /* Background color */
+        cursor: pointer; /* Changes cursor to pointer on hover */
+      }
+
+      .size-btn:hover {
+        filter: brightness(90%);
+      }
+
+      .size-btn.active {
+        background-color: #007bff;
+        color: #fff;
+        border-color: #007bff;
+      }
+
+      .cart {
+        margin-top: 15px;
+      }
+      .addtocart {
+        width: 100%; /* Width of four buttons minus 3 gaps */
+        padding: 20px 0; /* Adjust padding as needed */
+        border: 1px solid #ccc; /* Styling to match the size buttons */
+        background-color: #fff; /* Background color */
+        cursor: pointer; /* Cursor style */
+        text-align: center; /* Center the text inside the button */
+        margin-top: 20px; /* Space above the button */
+      }
+
+      @media (max-width: 600px) {
+        .size-selector {
+          grid-template-columns: repeat(
+            2,
+            1fr
+          ); /* Two buttons per row on smaller screens */
+        }
+      }
+
+      @media (max-width: 600px) {
+        .addtocart {
+          width: calc(100% - 10px); /* Adjust for two buttons and one gap */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- nav bar -->
+    <nav>
+      <div class="nav-links">
+        <a href="index.html"
+          ><img src="images/Entr-logos/Entr-logos_transparent.png" alt="Logo"
+        /></a>
+        <a href="shopping.html">Men</a>
+        <a href="youtube.com">Women</a>
+        <a href="twitter.com">Kids</a>
+        <a href="instagram.com">Sale</a>
+        <a href="reddit.com">What's New</a>
+        <a href="aboutus.html">About Us</a>
+      </div>
+
+      <!-- search bar -->
+      <form class="search-form">
+        <input type="text" placeholder="Search..." id="searchInput" />
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+      <!-- Font Awesome Icons -->
+      <div class="nav-icons">
+        <a href="#favourites"><i class="fa-solid fa-heart"></i></a>
+        <a href="#account"><i class="fa-solid fa-user"></i></a>
+        <a href="#shopping"><i class="fa-solid fa-bag-shopping"></i></a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="thumbnails">
+        <img
+          id="thumbnail1"
+          src="https://picsum.photos/id/1/200/300"
+          alt="Thumbnail 1"
+          onclick="changeImage('https://picsum.photos/id/1/200/300')"
+        />
+        <img
+          id="thumbnail2"
+          src="https://source.unsplash.com/random"
+          alt="Thumbnail 2"
+          onclick="changeImage('https://source.unsplash.com/random')"
+        />
+      </div>
+      <div class="itempicture">
+        <img id="mainImage" src="https://picsum.photos/200" alt="first image" />
+      </div>
+
+      <!-- the right side  -->
+      <div class="itemtext">
+        <h2>Lorem Ipsum Dolor Sit amet</h2>
+        <h3>lorem ipsum</h3>
+        <p>wow the</p>
+        <p>Color:</p>
+        <div class="colorimg">
+          <img
+            src="https://picsum.photos/id/1/200/300"
+            alt="color1"
+            onclick="changeCatalog('color1')"
+          />
+          <img
+            src="https://picsum.photos/id/1/200/300"
+            alt="color2"
+            onclick="changeCatalog('color2')"
+          />
+        </div>
+        <p>Size:</p>
+        <div class="size-selector">
+          <button class="size-btn" type="button">1</button>
+          <button class="size-btn" type="button">2</button>
+          <button class="size-btn" type="button">3</button>
+          <button class="size-btn" type="button">4</button>
+          <button class="size-btn" type="button">5</button>
+          <button class="size-btn" type="button">6</button>
+          <button class="size-btn" type="button">7</button>
+        </div>
+        <div class="cart">
+          <button class="addtocart" type="button">Add To Cart</button>
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis
+          nulla porttitor, hendrerit tellus ac, commodo felis. Donec posuere
+          ante at velit varius hendrerit. Donec sollicitudin erat in laoreet
+          pulvinar. Donec vestibulum elit ac diam tristique dapibus. Sed viverra
+          arcu sed ligula lacinia semper. Donec tristique,
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-left">
+        <a href="your-facebook-url" class="social-icon"
+          ><i class="fa-brands fa-facebook"></i
+        ></a>
+        <a href="your-twitter-url" class="social-icon"
+          ><i class="fa-brands fa-twitter"></i
+        ></a>
+        <a href="your-instagram-url" class="social-icon"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+      </div>
+
+      <div class="footer-center">
+        <p>© 2023 Geardan</p>
+      </div>
+
+      <div class="footer-right">
+        <a href="contact-page-url">Contact Us</a>
+      </div>
+    </footer>
+    <script>
+      function changeCatalog(color) {
+        // Example logic to change thumbnails based on color
+        if (color === "color1") {
+          document.getElementById("thumbnail1").src =
+            "https://source.unsplash.com/random";
+          document.getElementById("thumbnail2").src =
+            "https://picsum.photos/id/1/200/300";
+          // Update other thumbnails similarly
+        } else if (color === "color2") {
+          document.getElementById("thumbnail1").src =
+            "https://picsum.photos/id/1/200/300";
+          document.getElementById("thumbnail2").src =
+            "https://picsum.photos/id/1/200/300";
+          // Update other thumbnails similarly
+        }
+        // Set the main image to the first image of color1
+        changeImage("https://picsum.photos/id/1/200/300");
+      }
+
+      function changeImage(newImageSrc) {
+        document.getElementById("mainImage").src = newImageSrc;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        changeCatalog("color1"); // Default color
+      });
+    </script>
+  </body>
+</html>
