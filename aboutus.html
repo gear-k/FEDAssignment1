@@ -43,7 +43,13 @@
 
   <body>
     <nav>
-      <div class="nav-links">
+      <div class="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div class="topnav" id="myTopnav">
         <a href="index.html"
           ><img src="images/Entr-logos/Entr-logos_transparent.png" alt="Logo"
         /></a>
@@ -53,12 +59,17 @@
         <a href="instagram.com">Sale</a>
         <a href="reddit.com">What's New</a>
         <a href="aboutus.html">About Us</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars"></i>
+        </a>
       </div>
 
       <!-- search bar -->
       <form class="search-form">
         <input type="text" placeholder="Search..." id="searchInput" />
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <button type="submit" onclick="toggleSearchInput(event)">
+          <i class="fa fa-search"></i>
+        </button>
       </form>
       <!-- Font Awesome Icons -->
       <div class="nav-icons">
@@ -114,5 +125,27 @@
         <a href="contact-page-url">Contact Us</a>
       </div>
     </footer>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+          x.className += " responsive";
+        } else {
+          x.className = "topnav";
+        }
+      }
+
+      function toggleSearchInput(event) {
+        var searchForm = document.querySelector(".search-form");
+        if (searchForm.classList.contains("expanded")) {
+          // If the form is already expanded, allow the form to submit
+          return true;
+        } else {
+          // Prevent form submission and show input field
+          event.preventDefault();
+          searchForm.classList.add("expanded");
+        }
+      }
+    </script>
   </body>
 </html>
