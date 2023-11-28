@@ -13,3 +13,20 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll(".hidden");
 hiddenElements.forEach((el) => observer.observe(el)); // Observing each hidden element
+
+document.addEventListener("DOMContentLoaded", function () {
+  var filterButton = document.getElementById("filter-toggle");
+  var filterContent = document.getElementById("filter-content");
+
+  filterButton.addEventListener("click", function () {
+    // Toggle the display of the filter content
+    if (
+      filterContent.style.display === "none" ||
+      filterContent.style.display === ""
+    ) {
+      filterContent.style.display = "block";
+    } else {
+      filterContent.style.display = "none";
+    }
+  });
+});

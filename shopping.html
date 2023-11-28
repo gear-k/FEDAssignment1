@@ -1,295 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="stylesheet.css" />
+    <script defer src="app.js"></script>
+    <title>Shopping</title>
+    <style></style>
+  </head>
 
-  <link rel="stylesheet" href="stylesheet.css" />
-  <title>Shopping</title>
-  <script>
-  </script>
-  <style>
-    /* there is a problem for when the user windows scaling is above 100%, the website breaks */
-    .image-item img {
-      width: 100%;
-    }
+  <body>
+    <nav>
+      <div class="nav-links">
+        <a href="index.html"
+          ><img src="images/Entr-logos/Entr-logos_transparent.png" alt="Logo"
+        /></a>
+        <a href="shopping.html">Men</a>
+        <a href="youtube.com">Women</a>
+        <a href="twitter.com">Kids</a>
+        <a href="instagram.com">Sale</a>
+        <a href="reddit.com">What's New</a>
+        <a href="aboutus.html">About Us</a>
+      </div>
 
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      /* Default to 3 columns */
-      gap: 1.875rem;
-      margin-right: 3.125rem;
-      width: max-content;
-      margin-left: 16.875rem;
-      /* Adjust based on sidebar width */
-      padding: 1.25rem;
-    }
+      <!-- search bar -->
+      <form class="search-form">
+        <input type="text" placeholder="Search..." id="searchInput" />
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+      <!-- Font Awesome Icons -->
+      <div class="nav-icons">
+        <a href="#favourites"><i class="fa-solid fa-heart"></i></a>
+        <a href="#account"><i class="fa-solid fa-user"></i></a>
+        <a href="#shopping"><i class="fa-solid fa-bag-shopping"></i></a>
+      </div>
+    </nav>
 
-    .image-item {
-      text-align: center;
-      /* Centers the text below the image */
-    }
+    <div class="main-layout">
+      <!-- side bar -->
+      <section class="sidebar">
+        <button id="filter-toggle">Filter Options</button>
+        <div id="filter-content">
+          <!-- Filter Group Content -->
+          <div class="filter-group">
+            <h4>Category</h4>
+            <ul>
+              <li>
+                <input type="checkbox" id="category1" /><label for="category1"
+                  >Category 1</label
+                >
+              </li>
+              <li>
+                <input type="checkbox" id="category2" /><label for="category2"
+                  >Category 2</label
+                >
+              </li>
+              <!-- More categories as needed -->
+            </ul>
+          </div>
+          <div class="filter-group">
+            <h4>Price Range</h4>
+            <ul>
+              <li>
+                <input type="checkbox" id="price1" /><label for="price1"
+                  >S$0 - $50</label
+                >
+              </li>
+              <li>
+                <input type="checkbox" id="price2" /><label for="price2"
+                  >S$51 - $100</label
+                >
+              </li>
+              <!-- More price ranges as needed -->
+            </ul>
+          </div>
+        </div>
+      </section>
 
-    .image-item img {
-      width: 31.25rem;
-      /* Fixed width */
-      height: auto;
-      /* Maintain aspect ratio */
-      display: block;
-      margin-top: 20px;
-      margin-bottom: 10px;
-    }
-
-    .image-item p {
-      margin: 0;
-      word-wrap: break-word;
-      /* Ensures long words don't overflow */
-      max-width: 31.25rem;
-      /* Set to the same width as your images */
-      height: auto;
-      /* Adjust height automatically based on content */
-      max-height: 60px;
-      /* Maximum height for the text block */
-      overflow-y: auto;
-      /* Allows scrolling within the text block if content exceeds max height */
-      text-align: left;
-    }
-
-    .sidebar {
-      padding-left: 1.042vw;
-      position: absolute;
-      /* making sure it stays at the top */
-      top: 9.896vw;
-      width: 10.938vw;
-
-    }
-
-    .sidebar h3:not(:first-child),
-    .filter-group h4 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      /* Space below the heading */
-      padding-bottom: 5px;
-      /* Padding below the text for the border */
-      border-bottom: 1px solid #ccc;
-      /* Creates a line below the heading */
-    }
-
-    .sidebar h3 {
-      margin-top: 0;
-    }
-
-    .filter-group input[type="checkbox"] {
-      appearance: none;
-      /* This disables the default styling of radio buttons */
-      -webkit-appearance: none;
-      /* For Safari and older Chrome browsers */
-      -moz-appearance: none;
-      /* For Firefox */
-      display: none;
-      /* Hides the input */
-    }
-
-    /* Custom radio button style */
-    .filter-group label {
-      position: relative;
-      padding-left: 35px;
-      /* increase gap between checkbox and word */
-      cursor: pointer;
-    }
-
-    .filter-group label:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 18px;
-      height: 18px;
-      border: 2px solid #ccc;
-      background-color: white;
-    }
-
-    input[type="checkbox"]:checked+label:before {
-      background-color: #604ce4;
-    }
-
-    .filter-group h4 {
-      /* to adjust the gap between the h4 and the buttons */
-      margin-bottom: -5px;
-    }
-
-    .filter-group ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    @media screen and (max-width: 768px) {
-      .image-grid {
-        grid-template-columns: repeat(2, 1fr);
-        /* 2 columns for medium screens */
-      }
-
-      .image-grid img {
-        width: 100%;
-      }
-    }
-
-
-    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-      .image-grid {
-        grid-template-columns: 1fr;
-        width: 70%;
-        /* 1 column for small screens */
-      }
-
-      .image-item img {
-        width: 100%;
-        /* Full width images on small screens */
-      }
-    }
-
-    @media screen and (max-width: 1200px) {
-      .sidebar {
-        display: none;
-      }
-
-      .image-grid {
-        margin-left: 0;
-        width: 100%;
-
-      }
-
-      .image-item img {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <nav>
-    <div class="nav-links">
-      <a href="index.html"><img src="images/Entr-logos/Entr-logos_transparent.png" alt="Logo" /></a>
-      <a href="shopping.html">Men</a>
-      <a href="youtube.com">Women</a>
-      <a href="twitter.com">Kids</a>
-      <a href="instagram.com">Sale</a>
-      <a href="reddit.com">What's New</a>
-      <a href="aboutus.html">About Us</a>
-    </div>
-    
-    <!-- search bar -->
-    <form class="search-form">
-      <input type="text" placeholder="Search..." id="searchInput">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-    <!-- Font Awesome Icons -->
-    <div class="nav-icons">
-      <a href="#favourites"><i class="fa-solid fa-heart"></i></a>
-      <a href="#account"><i class="fa-solid fa-user"></i></a>
-      <a href="#shopping"><i class="fa-solid fa-bag-shopping"></i></a>
-    </div>
-  </nav>
-
-  <!-- image grid to display items -->
-  <div class="image-grid">
-    <div class="image-item">
-      <img src="https://picsum.photos/200" alt="Elegant Evening Gown" />
-      <p><b>Evening Gown</b></p>
-      <p>Formal Wear</p>
-      <p>S$120.00</p>
-    </div>
-    <div class="image-item">
-      <img src="https://picsum.photos/200" alt="Chic Leather Jacket" />
-      <p><b>Leather Jacket</b></p>
-      <p>Outerwear</p>
-      <p>S$250.00</p>
-    </div>
-    <div class="image-item">
-      <img src="https://picsum.photos/200" alt="Classic Blue Jeans" />
-      <p><b>Blue Jeans</b></p>
-      <p>Denim</p>
-      <p>S$89.00</p>
-    </div>
-    <div class="image-item">
-      <img src="https://picsum.photos/200" alt="Bohemian Maxi Dress" />
-      <p><b>Maxi Dress</b></p>
-      <p>Casual Wear</p>
-      <p>S$75.00</p>
-    </div>
-    <div class="image-item">
-      <img src="https://picsum.photos/200" alt="Trendy Sneakers" />
-      <p><b>Sneakers</b></p>
-      <p>Footwear</p>
-      <p>S$110.00</p>
-    </div>
-    <div class="image-item">
-      <img src="https://picsum.photos/200" alt="Casual Linen Shirt" />
-      <p><b>Linen Shirt</b></p>
-      <p>Everyday Wear</p>
-      <p>S$60.00</p>
-    </div>
-    <div class="image-item">
-      <img src="https://picsum.photos/200" alt="Formal Blazer" />
-      <p><b>Blazer</b></p>
-      <p>Office Wear</p>
-      <p>S$150.00</p>
-    </div>
-    <div class="image-item">
-      <img src="https://picsum.photos/200" alt="Summer Shorts" />
-      <p><b>Shorts</b></p>
-      <p>Summer Collection</p>
-      <p>S$45.00</p>
-    </div>
-    <div class="image-item">
-      <img src="https://picsum.photos/200" alt="Elegant Scarf" />
-      <p><b>Scarf</b></p>
-      <p>Accessories</p>
-      <p>S$35.00</p>
-    </div>
-    <br><br><br>
-  </div>
-
-
-  <!-- side bar -->
-  <section class="sidebar">
-    <h3>Filter</h3>
-    <div class="filter-group">
-      <h4>Category</h4>
-      <ul>
-        <li><input type="checkbox" id="category1"><label for="category1">Category 1</label></li>
-        <li><input type="checkbox" id="category2"><label for="category2">Category 2</label></li>
-      </ul>
-
-    </div>
-    <div class="filter-group">
-      <h4>Price Range</h4>
-      <ul>
-        <li><input type="checkbox" id="price1"><label for="price1">S$0 - $50</label></li>
-        <li><input type="checkbox" id="price2"><label for="price2">S$51 - $100</label></li>
-      </ul>
-    </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-left">
-      <a href="your-facebook-url" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
-      <a href="your-twitter-url" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
-      <a href="your-instagram-url" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+      <div class="container">
+        <div class="box">
+          <img
+            src="https://images.pexels.com/photos/36753/flower-purple-lical-blosso.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          />
+          <h3>hello box1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+            molestias hic velit, ipsum facere nemo minus distinctio est quidem
+            neque.
+          </p>
+        </div>
+        <div class="box">
+          <img
+            src="https://images.pexels.com/photos/36753/flower-purple-lical-blosso.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          />
+          <h3>hello box1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+            molestias hic velit, ipsum facere nemo minus distinctio est quidem
+            neque.
+          </p>
+        </div>
+        <div class="box">
+          <img
+            src="https://images.pexels.com/photos/36753/flower-purple-lical-blosso.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          />
+          <h3>hello box1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+            molestias hic velit, ipsum facere nemo minus distinctio est quidem
+            neque.
+          </p>
+        </div>
+        <div class="box">
+          <img
+            src="https://images.pexels.com/photos/36753/flower-purple-lical-blosso.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          />
+          <h3>hello box1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+            molestias hic velit, ipsum facere nemo minus distinctio est quidem
+            neque.
+          </p>
+        </div>
+        <div class="box">
+          <img
+            src="https://images.pexels.com/photos/36753/flower-purple-lical-blosso.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          />
+          <h3>hello box1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
+            molestias hic velit, ipsum facere nemo minus distinctio est quidem
+            neque.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div class="footer-center">
-      <p>© 2023 Geardan</p>
-    </div>
+    <footer>
+      <div class="footer-left">
+        <a href="your-facebook-url" class="social-icon"
+          ><i class="fa-brands fa-facebook"></i
+        ></a>
+        <a href="your-twitter-url" class="social-icon"
+          ><i class="fa-brands fa-twitter"></i
+        ></a>
+        <a href="your-instagram-url" class="social-icon"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+      </div>
 
-    <div class="footer-right">
-      <a href="contact-page-url">Contact Us</a>
-    </div>
-  </footer>
+      <div class="footer-center">
+        <p>© 2023 Geardan</p>
+      </div>
 
-</body>
-
+      <div class="footer-right">
+        <a href="contact-page-url">Contact Us</a>
+      </div>
+    </footer>
+  </body>
 </html>

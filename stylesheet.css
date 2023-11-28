@@ -170,6 +170,105 @@ footer {
   transform: translateY(0);
 }
 
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  width: 80vw; /* Adjust based on sidebar width */
+  justify-content: flex-start;
+  background-color: yellow;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  background-color: blue;
+  margin: 0.65vw;
+  text-align: left;
+  flex-basis: calc(33% - 30px);
+}
+
+.box img {
+  width: 100%;
+  height: auto;
+}
+
+.sidebar {
+  background-color: greenyellow;
+  width: 14vw;
+  padding-left: 3.2552vw;
+}
+
+.main-layout {
+  display: flex;
+}
+
+.filter-group input[type="checkbox"] {
+  appearance: none;
+  /* This disables the default styling of radio buttons */
+  -webkit-appearance: none;
+  /* For Safari and older Chrome browsers */
+  -moz-appearance: none;
+  /* For Firefox */
+  display: none;
+  /* Hides the input */
+}
+
+/* Custom radio button style */
+.filter-group label {
+  position: relative;
+  padding-left: 35px;
+  /* increase gap between checkbox and word */
+  cursor: pointer;
+}
+
+.filter-group label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  background-color: white;
+}
+
+input[type="checkbox"]:checked + label:before {
+  background-color: #604ce4;
+}
+
+.filter-group h4 {
+  /* to adjust the gap between the h4 and the buttons */
+  margin-bottom: -5px;
+}
+
+.filter-group ul {
+  list-style: none;
+  padding: 0;
+}
+
+#filter-toggle {
+  display: none;
+}
+
+/* The filter content should be visible by default */
+#filter-content {
+  display: block;
+  /* Additional styles for the filter content */
+}
+
+@media screen and (max-width: 500px) {
+  .box {
+    flex-basis: 100%; /* 2 images per row for smaller screens */
+  }
+}
+@media screen and (max-width: 800px) {
+  .box {
+    flex-basis: calc(50% - 30px); /* 2 images per row for smaller screens */
+  }
+}
+
 @media screen and (max-width: 960px) {
   .topnav a:not(:first-child) {
     display: none;
@@ -177,6 +276,20 @@ footer {
   .topnav a.icon {
     float: right;
     display: block;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  #filter-toggle {
+    display: block;
+    /* Additional styles for the button */
+  }
+
+  /* Initially hide the filter content on smaller screens */
+  #filter-content {
+    display: none;
   }
 }
 
