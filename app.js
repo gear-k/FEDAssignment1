@@ -14,19 +14,41 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll(".hidden");
 hiddenElements.forEach((el) => observer.observe(el)); // Observing each hidden element
 
-document.addEventListener("DOMContentLoaded", function () {
-  var filterButton = document.getElementById("filter-toggle");
-  var filterContent = document.getElementById("filter-content");
+function openNav() {
+  document.getElementById("myNav").style.width = "100%"; // Open the overlay to full width
+}
 
-  filterButton.addEventListener("click", function () {
-    // Toggle the display of the filter content
-    if (
-      filterContent.style.display === "none" ||
-      filterContent.style.display === ""
-    ) {
-      filterContent.style.display = "block";
-    } else {
-      filterContent.style.display = "none";
-    }
-  });
-});
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%"; // Close the overlay
+}
+
+// slideshow for index.html
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  slideIndex++;
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }
+
+  slides[slideIndex - 1].style.display = "block";
+
+  setTimeout(showSlides, 4000); // Change slide every 4 seconds
+}
+
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
