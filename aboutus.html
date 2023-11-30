@@ -36,7 +36,13 @@
         text-align: center;
         margin: 0 auto;
         flex: 1 0 auto; /* This will push the footer down */
-        padding-top: 5vh;
+        padding: 5vh;
+      }
+
+      .grayscale {
+        filter: grayscale(1);
+        -webkit-filter: grayscale(1);
+        filter: grayscale(100%);
       }
     </style>
   </head>
@@ -80,48 +86,43 @@
     </nav>
 
     <div class="fixed-header">
-      <video autoplay muted loop id="myVideo">
-        <source src="videos/knocked.mp4" type="video/mp4" />
+      <video autoplay muted loop id="myVideo" class="grayscale">
+        <source src="videos/nikevideo.mp4" type="video/mp4" />
       </video>
       <div class="centered-text">About Us</div>
     </div>
 
     <div class="content">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. At tellus at urna
-        condimentum. Magna fringilla urna porttitor rhoncus dolor purus non
-        enim. Morbi non arcu risus quis varius quam. Ut sem nulla pharetra diam
-        sit amet nisl suscipit. Sit amet nulla facilisi morbi tempus iaculis.
-        Tortor at auctor urna nunc id cursus metus. Odio pellentesque diam
-        volutpat commodo sed egestas egestas fringilla.
+        Entr stands at the forefront of modern fashion, blending minimalist
+        design with a commitment to sustainability. Our collections are defined
+        by sleek, clean lines and understated color palettes, offering a unique
+        combination of luxury and eco-conscious materials. Focused on timeless
+        appeal and exceptional craftsmanship, Entr caters to the fashion-forward
+        individual who values both aesthetic elegance and ethical production
+        practices. This is fashion reimagined – sophisticated, simple, and
+        respectful of our planet.
       </p>
     </div>
 
     <footer>
-      <div class="footer-left">
+      <div class="footer-social">
         <a href="your-facebook-url" class="social-icon"
-          ><i
-            class="fa-brands fa-facebook"
-            style="color: rgb(255, 255, 255)"
-          ></i
+          ><i class="fa-brands fa-facebook"></i
         ></a>
         <a href="your-twitter-url" class="social-icon"
-          ><i class="fa-brands fa-twitter" style="color: rgb(255, 255, 255)"></i
+          ><i class="fa-brands fa-twitter"></i
         ></a>
-        <a href=" your-instagram-url" class="social-icon"
-          ><i
-            class="fa-brands fa-instagram"
-            style="color: rgb(255, 255, 255)"
-          ></i
+        <a href="your-instagram-url" class="social-icon"
+          ><i class="fa-brands fa-instagram"></i
         ></a>
       </div>
 
-      <div class="footer-center">
-        <p>© 2023 Entr</p>
+      <div class="footer-info">
+        <p>© 2023 Geardan</p>
       </div>
 
-      <div class="footer-right">
+      <div class="footer-contact">
         <a href="contact-page-url">Contact Us</a>
       </div>
     </footer>
