@@ -28,9 +28,23 @@
       }
 
       @media screen and (max-width: 960px) {
+        .topnav {
+          flex-direction: column; /* Stack elements vertically */
+        }
+
+        .nav-right-section {
+          width: 100%; /* Full width */
+          order: 1; /* Ensure this section comes below the nav links */
+        }
+
         .search-form {
-          width: 100%; /* Make the search bar full width */
-          height: 2.1875rem;
+          width: 100%; /* Full width of the parent container */
+          margin: 0; /* Remove any margins */
+          padding: 6px 10px;
+        }
+
+        .nav-links {
+          width: 100%; /* Full width */
         }
 
         .topnav a:not(:first-child) {
@@ -97,7 +111,6 @@
       </div>
     </nav>
 
-    <!-- this is just a hero image but i plan to add a slideshow -->
     <header>
       <!-- Slideshow container -->
       <div class="slideshow-container">
@@ -106,17 +119,14 @@
           <h1>i liek men</h1>
         </div>
         <div class="mySlides fade">
-          <div class="numbertext">1 / 3</div>
           <img src="images/womanindex.png" />
         </div>
 
         <div class="mySlides fade">
-          <div class="numbertext">2 / 3</div>
           <img src="images/woman.png" />
         </div>
 
         <div class="mySlides fade">
-          <div class="numbertext">3 / 3</div>
           <img src="images/menindex.png" />
         </div>
       </div>

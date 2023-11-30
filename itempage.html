@@ -4,102 +4,185 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="stylesheet.css" />
-    <title>Contact Us</title>
+    <title>Item Page</title>
     <style>
-      .thumbnails {
-        display: flex;
-        flex-direction: column; /* Align thumbnails vertically */
-        gap: 10px; /* Space between thumbnails */
-        cursor: pointer; /* Change cursor on hover over thumbnails */
+      @import url("https://fonts.googleapis.com/css?family=Pontano+Sans");
+      * {
+        box-sizing: border-box;
+      }
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Pontano Sans", sans-serif;
+        font-size: 1.125rem;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+        color: #888;
+      }
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      ul li {
+        margin: 0 1.75rem 0 0;
+      }
+      a {
+        color: #888;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+      a:hover {
+        color: #333;
+      }
+      a.active {
+        color: #333;
+      }
+      h1,
+      h2 {
+        color: #333;
+        font-weight: normal;
+        margin: 1.75rem 0 1rem 0;
+      }
+      h1 {
+        font-size: 2.5rem;
+        margin: 0;
+      }
+      h2 {
+        font-size: 1.5rem;
+        margin: 0;
       }
 
-      .thumbnails img {
-        width: 100px; /* Set a fixed width for thumbnails */
-        height: 100px; /* Maintain aspect ratio */
-        margin-right: -40px;
+      .product-image img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+        object-position: center 60%; /* Adjusts the position of the image */
       }
 
-      .itempicture img {
-        width: 550px; /* Adjust as per your existing style */
-        height: 550px;
+      .image-item img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+        object-position: center 60%; /* Adjusts the position of the image */
       }
-      .container {
-        display: flex;
-        justify-content: center;
-        gap: 50px;
-        height: 100vh;
-        margin-top: 100px;
+      .itempage-description {
+        border-top: 0.0625rem solid #e3dddd;
+        margin: 2rem 0;
+        padding: 1rem 0 0 0;
       }
-
-      .itemtext {
-        flex-basis: 500px; /* Or your desired fixed size */
-        flex-grow: 0;
-        flex-shrink: 0;
-        overflow: auto;
-      }
-
-      .colorimg {
-        display: flex;
-
-        gap: 20px;
-      }
-
-      .colorimg img {
-        width: 50px;
-        height: 50px;
-        cursor: pointer;
-      }
-
-      .size-selector {
-        display: grid; /* Aligns buttons in a row */
-        gap: 10px; /* Adds space between the buttons */
-
-        grid-template-columns: repeat(4, 1fr); /* Creates four columns */
-      }
-
-      .size-btn {
-        flex: 1 0 22%; /* Flex grow, flex shrink, and basis */
-        padding: 10px 45px; /* Adds padding inside the buttons */
-        border: 1px solid #ccc; /* Border for buttons */
-        background-color: #ffffff; /* Background color */
-        cursor: pointer; /* Changes cursor to pointer on hover */
-      }
-
-      .size-btn:hover {
-        filter: brightness(90%);
-      }
-
-      .size-btn.active {
-        background-color: #007bff;
+      .add-to-cart {
+        position: relative;
+        display: inline-block;
+        background: #3e3e3f;
         color: #fff;
-        border-color: #007bff;
+        border: none;
+        border-radius: 0;
+        padding: 1.25rem 2.5rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transform: translateZ(0);
+        transition: color 0.3s ease, transform 0.3s ease; /* Added transition for transform */
+        letter-spacing: 0.0625rem;
+        width: 200px; /* Set a specific width */
+        margin-bottom: 5px;
       }
 
-      .cart {
-        margin-top: 15px;
-      }
-      .addtocart {
-        width: 100%; /* Width of four buttons minus 3 gaps */
-        padding: 20px 0; /* Adjust padding as needed */
-        border: 1px solid #ccc; /* Styling to match the size buttons */
-        background-color: #fff; /* Background color */
-        cursor: pointer; /* Cursor style */
-        text-align: center; /* Center the text inside the button */
-        margin-top: 20px; /* Space above the button */
+      .shrink {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
       }
 
-      @media (max-width: 600px) {
-        .size-selector {
-          grid-template-columns: repeat(
-            2,
-            1fr
-          ); /* Two buttons per row on smaller screens */
+      .shrink:hover {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+      }
+
+      .itempage-container {
+        margin: auto;
+        padding: 0 1rem;
+        max-width: 75rem;
+        width: 100%;
+        display: block;
+        margin-top: 20px;
+      }
+      .grid > [class*="column-"] {
+        padding: 1rem;
+      }
+      .grid.menu,
+      .grid.product {
+        border-bottom: 0.0625rem solid #e3dddd;
+      }
+      .grid.menu > [class*="column-"] {
+        padding: 0.5rem 1rem 0.5rem 1rem;
+      }
+      .grid.product {
+        padding: 0 0 1.5rem 0;
+      }
+      .grid.second-nav > [class*="column-"] {
+        padding: 0.5rem 1rem;
+      }
+
+      .product-image {
+        display: none;
+      }
+      .image-list li {
+        margin: 0;
+      }
+
+      @media (min-width: 961px) {
+        /* code that is running rn */
+        .product-image img,
+        .image-list img {
+          width: 100%;
+        }
+        .product-image {
+          display: block;
+        }
+        .product-image img {
+          height: 52vh;
+        }
+        .product-image img.active {
+          display: block;
+          margin: 0 0 0.75rem 0;
+        }
+        .image-list {
+          display: flex;
+          overflow: hidden;
+        }
+        .image-list li {
+          margin: 0 0.75rem 0 0;
+          flex-basis: 100%;
+        }
+        .image-list li:nth-child(3) {
+          margin: 0;
+        }
+        .image-list img {
+          height: 10rem;
+          width: 100%;
+          transition: opacity 0.3s ease;
+          cursor: pointer;
+        }
+        .image-list img:hover {
+          opacity: 0.7;
         }
       }
-
-      @media (max-width: 600px) {
-        .addtocart {
-          width: calc(100% - 10px); /* Adjust for two buttons and one gap */
+      @keyframes fadeImg {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
         }
       }
     </style>
@@ -132,68 +215,47 @@
       </div>
     </nav>
 
-    <div class="container">
-      <div class="thumbnails">
-        <img
-          id="thumbnail1"
-          src="https://picsum.photos/id/1/200/300"
-          alt="Thumbnail 1"
-          onclick="changeImage('https://picsum.photos/id/1/200/300')"
-        />
-        <img
-          id="thumbnail2"
-          src="https://source.unsplash.com/random"
-          alt="Thumbnail 2"
-          onclick="changeImage('https://source.unsplash.com/random')"
-        />
-      </div>
-      <div class="itempicture">
-        <img id="mainImage" src="https://picsum.photos/200" alt="first image" />
-      </div>
-
-      <!-- the right side  -->
-      <div class="itemtext">
-        <h2>Lorem Ipsum Dolor Sit amet</h2>
-        <h3>lorem ipsum</h3>
-        <p>wow the</p>
-        <p>Color:</p>
-        <div class="colorimg">
-          <img
-            src="https://picsum.photos/id/1/200/300"
-            alt="color1"
-            onclick="changeCatalog('color1')"
-          />
-          <img
-            src="https://picsum.photos/id/1/200/300"
-            alt="color2"
-            onclick="changeCatalog('color2')"
-          />
+    <div class="itempage-container">
+      <div class="grid product">
+        <div class="column-xs-12 column-md-7">
+          <div class="product-gallery">
+            <div class="product-image">
+              <img class="active" src="images/dunks1.png" />
+            </div>
+            <ul class="image-list">
+              <li class="image-item">
+                <img src="images/dunks1.png" />
+              </li>
+              <li class="image-item">
+                <img src="images/dunks2.png" />
+              </li>
+              <li class="image-item">
+                <img src="images/dunks3.png" />
+              </li>
+            </ul>
+          </div>
         </div>
-        <p>Size:</p>
-        <div class="size-selector">
-          <button class="size-btn" type="button">1</button>
-          <button class="size-btn" type="button">2</button>
-          <button class="size-btn" type="button">3</button>
-          <button class="size-btn" type="button">4</button>
-          <button class="size-btn" type="button">5</button>
-          <button class="size-btn" type="button">6</button>
-          <button class="size-btn" type="button">7</button>
+        <div class="column-xs-12 column-md-5">
+          <h1>Nike Dunk Low Retro Premium</h1>
+          <h2>Men's Shoe</h2>
+          <h2>S$205.50</h2>
+          <div class="itempage-description">
+            <p>
+              Created for the hardwood but taken to the streets, the '80s b-ball
+              icon returns with classic materials and throwback hoops flair.
+              Channelling vintage style back onto the streets, its padded collar
+              lets you take your game anywhere—in comfort.
+            </p>
+            <p>Colour Shown: Deep Jungle/Light Silver/Deep Jungle/White</p>
+          </div>
+          <button class="add-to-cart shrink">Add To Cart</button>
+          <button class="add-to-cart shrink">Buy Now</button>
         </div>
-        <div class="cart">
-          <button class="addtocart" type="button">Add To Cart</button>
-        </div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis
-          nulla porttitor, hendrerit tellus ac, commodo felis. Donec posuere
-          ante at velit varius hendrerit. Donec sollicitudin erat in laoreet
-          pulvinar. Donec vestibulum elit ac diam tristique dapibus. Sed viverra
-          arcu sed ligula lacinia semper. Donec tristique,
-        </p>
       </div>
     </div>
 
     <footer>
-      <div class="footer-left">
+      <div class="footer-social">
         <a href="your-facebook-url" class="social-icon"
           ><i class="fa-brands fa-facebook"></i
         ></a>
@@ -205,41 +267,31 @@
         ></a>
       </div>
 
-      <div class="footer-center">
+      <div class="footer-info">
         <p>© 2023 Geardan</p>
       </div>
 
-      <div class="footer-right">
+      <div class="footer-contact">
         <a href="contact-page-url">Contact Us</a>
       </div>
     </footer>
     <script>
-      function changeCatalog(color) {
-        // Example logic to change thumbnails based on color
-        if (color === "color1") {
-          document.getElementById("thumbnail1").src =
-            "https://source.unsplash.com/random";
-          document.getElementById("thumbnail2").src =
-            "https://picsum.photos/id/1/200/300";
-          // Update other thumbnails similarly
-        } else if (color === "color2") {
-          document.getElementById("thumbnail1").src =
-            "https://picsum.photos/id/1/200/300";
-          document.getElementById("thumbnail2").src =
-            "https://picsum.photos/id/1/200/300";
-          // Update other thumbnails similarly
-        }
-        // Set the main image to the first image of color1
-        changeImage("https://picsum.photos/id/1/200/300");
+      const activeImage = document.querySelector(".product-image .active");
+      const productImages = document.querySelectorAll(".image-list img");
+      const navItem = document.querySelector("a.toggle-nav");
+
+      function changeImage(e) {
+        activeImage.src = e.target.src;
       }
 
-      function changeImage(newImageSrc) {
-        document.getElementById("mainImage").src = newImageSrc;
+      function toggleNavigation() {
+        this.nextElementSibling.classList.toggle("active");
       }
 
-      document.addEventListener("DOMContentLoaded", function () {
-        changeCatalog("color1"); // Default color
-      });
+      productImages.forEach((image) =>
+        image.addEventListener("click", changeImage)
+      );
+      navItem.addEventListener("click", toggleNavigation);
     </script>
   </body>
 </html>

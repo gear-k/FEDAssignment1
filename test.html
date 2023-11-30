@@ -5,85 +5,248 @@
     <title>Document</title>
 
     <style>
-      .container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        flex-wrap: wrap;
+      @import url("https://fonts.googleapis.com/css?family=Pontano+Sans");
+      * {
+        box-sizing: border-box;
+      }
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Pontano Sans", sans-serif;
+        font-size: 1.125rem;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+        color: #888;
+        background: #fff;
+        text-rendering: optimizeLegibility;
+      }
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      ul li {
+        margin: 0 1.75rem 0 0;
+      }
+      a {
+        color: #888;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+      a:hover {
+        color: #333;
+      }
+      a.active {
+        color: #333;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: #333;
+        font-weight: normal;
+        margin: 1.75rem 0 1rem 0;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+      h2 {
+        font-size: 2.125rem;
+        margin: 0;
+      }
+      h3 {
+        font-size: 2rem;
+      }
+      h4 {
+        font-size: 1.5rem;
+        margin: 1rem 0 0.5rem 0;
+      }
+      section {
+        display: block;
       }
       img {
-        width: 100%;
+        max-width: 100%;
         height: auto;
+        object-fit: cover;
       }
-      .box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        max-width: 25rem;
-        min-width: 18rem;
-        margin: 10px;
-        text-align: left;
+
+      .description {
+        border-top: 0.0625rem solid #e3dddd;
+        margin: 2rem 0;
+        padding: 1rem 0 0 0;
+      }
+      .add-to-cart {
+        position: relative;
+        display: inline-block;
+        background: #3e3e3f;
+        color: #fff;
+        border: none;
+        border-radius: 0;
+        padding: 1.25rem 2.5rem;
+        font-size: 1rem;
+        text-transform: uppercase;
+        cursor: pointer;
+        transform: translateZ(0);
+        transition: color 0.3s ease;
+        letter-spacing: 0.0625rem;
+      }
+      .add-to-cart:hover::before {
+        transform: scaleX(1);
+      }
+      .add-to-cart::before {
+        position: absolute;
+        content: "";
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #565657;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        transition: transform 0.3s ease-out;
+      }
+      .itempage-container {
+        margin: auto;
+        padding: 0 1rem;
+        max-width: 75rem;
+        width: 100%;
+      }
+      .grid > [class*="column-"] {
+        padding: 1rem;
+      }
+      .grid.menu,
+      .grid.product {
+        border-bottom: 0.0625rem solid #e3dddd;
+      }
+      .grid.menu > [class*="column-"] {
+        padding: 0.5rem 1rem 0.5rem 1rem;
+      }
+      .grid.product {
+        padding: 0 0 1.5rem 0;
+      }
+      .grid.second-nav > [class*="column-"] {
+        padding: 0.5rem 1rem;
+      }
+      footer {
+        padding: 1rem 0;
+        text-align: center;
+      }
+      .product-image {
+        display: none;
+      }
+      .image-list li {
+        margin: 0;
+      }
+      @media (min-width: 960px) {
+        .product-image img,
+        .image-list img {
+          width: 100%;
+        }
+        .product-image {
+          display: block;
+        }
+        .product-image img {
+          height: 52vh;
+        }
+        .product-image img.active {
+          display: block;
+          margin: 0 0 0.75rem 0;
+        }
+        .image-list {
+          display: flex;
+          overflow: hidden;
+        }
+        .image-list li {
+          margin: 0 0.75rem 0 0;
+          flex-basis: 100%;
+        }
+        .image-list li:nth-child(3) {
+          margin: 0;
+        }
+        .image-list img {
+          height: 10rem;
+          width: 100%;
+          transition: opacity 0.3s ease;
+          cursor: pointer;
+        }
+        .image-list img:hover {
+          opacity: 0.7;
+        }
+      }
+      @keyframes fadeImg {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="box">
-        <img
-          src="https://images.pexels.com/photos/36753/flower-purple-lical-blosso.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        />
-        <h1>hello box1</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-          molestias hic velit, ipsum facere nemo minus distinctio est quidem
-          neque.
-        </p>
-      </div>
-      <div class="box">
-        <img
-          src="https://images.pexels.com/photos/36753/flower-purple-lical-blosso.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        />
-        <h1>box2</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-          molestias hic velit, ipsum facere nemo minus distinctio est quidem
-          neque.
-        </p>
-      </div>
-      <div class="box">
-        <img
-          src="https://images.pexels.com/photos/36753/flower-purple-lical-blosso.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        />
-        <h1>box3</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-          molestias hic velit, ipsum facere nemo minus distinctio est quidem
-          neque.
-        </p>
-      </div>
-      <div class="box">
-        <img
-          src="https://images.pexels.com/photos/36753/flower-purple-lical-blosso.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        />
-        <h1>box3</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-          molestias hic velit, ipsum facere nemo minus distinctio est quidem
-          neque.
-        </p>
-      </div>
-      <div class="box">
-        <img
-          src="https://images.pexels.com/photos/36753/flower-purple-lical-blosso.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        />
-        <h1>box3</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique
-          molestias hic velit, ipsum facere nemo minus distinctio est quidem
-          neque.
-        </p>
+    <div class="itempage-container">
+      <div class="grid product">
+        <div class="column-xs-12 column-md-7">
+          <div class="product-gallery">
+            <div class="product-image">
+              <img
+                class="active"
+                src="https://source.unsplash.com/W1yjvf5idqA"
+              />
+            </div>
+            <ul class="image-list">
+              <li class="image-item">
+                <img src="https://source.unsplash.com/W1yjvf5idqA" />
+              </li>
+              <li class="image-item">
+                <img src="https://source.unsplash.com/VgbUxvW3gS4" />
+              </li>
+              <li class="image-item">
+                <img src="https://source.unsplash.com/5WbYFH0kf_8" />
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column-xs-12 column-md-5">
+          <h1>Bonsai</h1>
+          <h2>$19.99</h2>
+          <div class="description">
+            <p>
+              The purposes of bonsai are primarily contemplation for the viewer,
+              and the pleasant exercise of effort and ingenuity for the grower.
+            </p>
+            <p>
+              By contrast with other plant cultivation practices, bonsai is not
+              intended for production of food or for medicine. Instead, bonsai
+              practice focuses on long-term cultivation and shaping of one or
+              more small trees growing in a container.
+            </p>
+          </div>
+          <button class="add-to-cart">Add To Cart</button>
+        </div>
       </div>
     </div>
+    <script>
+      const activeImage = document.querySelector(".product-image .active");
+      const productImages = document.querySelectorAll(".image-list img");
+      const navItem = document.querySelector("a.toggle-nav");
+
+      function changeImage(e) {
+        activeImage.src = e.target.src;
+      }
+
+      function toggleNavigation() {
+        this.nextElementSibling.classList.toggle("active");
+      }
+
+      productImages.forEach((image) =>
+        image.addEventListener("click", changeImage)
+      );
+      navItem.addEventListener("click", toggleNavigation);
+    </script>
   </body>
 </html>

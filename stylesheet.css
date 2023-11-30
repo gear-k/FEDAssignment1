@@ -62,16 +62,12 @@ nav img {
   align-items: center; /* Align items vertically */
   margin-left: auto;
   background: #f5f5f5;
-  border-radius: 20px; /* Adjusted for rounded corners */
   border: 1px solid #ccc;
-  padding-right: 0px; /* Padding to prevent the button from sticking to the edge */
 }
 
 .search-form input[type="text"] {
   flex-grow: 1; /* Allows input to take available space */
-  padding: 4px 8px;
   font-size: 1rem;
-  border-radius: 20px 0 0 20px; /* Rounded left corners */
   border: none; /* Removes border */
   background-color: #f5f5f5;
   font-family: "Montserrat", sans-serif;
@@ -79,7 +75,7 @@ nav img {
 
 .search-form button {
   padding: 6px 10px;
-  border-radius: 0 20px 20px 0; /* Rounded right corners */
+  border: 1px solid #ccc;
   border: none; /* Removes border */
   cursor: pointer;
   background-color: #f5f5f5;
@@ -172,11 +168,13 @@ footer {
 .mySlides {
   display: none;
   width: 100%;
-  transition: transform 0.5s ease;
+
+  transition: transform 0.5s ease-in-out;
 }
 /* Slideshow container */
 .slideshow-container {
-  max-width: 100vw;
+  padding-top: 2vw;
+  max-width: 80vw;
   position: relative;
   margin: auto;
   overflow: hidden;
@@ -192,21 +190,13 @@ footer {
 /* Caption text */
 .slideshow-text {
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff; /* Choose a text color that stands out */
   font-size: 1.25rem; /* Adjust font size as needed */
   text-align: center;
   z-index: 10; /* Ensure text is above the images */
-}
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #000000;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
 }
 
 /* On smaller screens, decrease text size */
@@ -340,7 +330,7 @@ footer {
 }
 /* shopping.html */
 
-.container {
+.shopping-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -460,7 +450,7 @@ input[type="checkbox"]:checked + label:before {
   background-color: rgba(0, 0, 0, 0.9);
   overflow-x: hidden;
   transition: 0.5s;
-  display: none; /* Hide by default */
+  /* display: none; Hide by default */
 }
 
 .overlay-content {
@@ -493,6 +483,11 @@ input[type="checkbox"]:checked + label:before {
 }
 
 @media screen and (max-width: 960px) {
+  .search-form button {
+    padding: 0;
+    margin-right: 5px;
+  }
+
   .top-images img {
     width: 80vw;
     height: auto;
