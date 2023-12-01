@@ -23,14 +23,95 @@ body {
 
 /* nav bar */
 
+.nav-logo img {
+  width: 8vw;
+  height: auto;
+}
+.nav > .nav-list {
+  display: flex;
+  gap: 0.5rem;
+}
+.nav > .nav-list > li {
+  list-style-type: none;
+}
+.nav > .nav-list > li a {
+  text-decoration: none;
+  color: #000000;
+  cursor: pointer;
+}
+.nav > #nav-check {
+  display: none;
+}
+
+.nav-right-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Aligns items to the right */
+  flex-grow: 1; /* Takes up remaining space */
+}
+
+.nav-icons {
+  gap: 10px;
+}
+@media (max-width: 960px) {
+  .nav-right-section {
+    flex-wrap: wrap;
+  }
+  .nav-btn,
+  .nav-icons {
+    flex: 1; /* Allows both elements to share the available space */
+  }
+  .nav {
+    padding: 1rem;
+  }
+  .nav > .nav-btn {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-top: 1rem;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #000000;
+  }
+  .nav > .nav-list {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    background-color: #ffffff;
+    height: 0;
+    transition: all 0.3s ease-in;
+    top: 40px;
+    left: 0;
+    overflow: hidden;
+    z-index: 1000;
+  }
+  .nav > .nav-list > li {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+  .nav > #nav-check:checked ~ .nav-list {
+    height: calc(100vh - 50px);
+  }
+}
+
 nav {
   display: flex;
   align-items: center;
   background: #f7f4ea;
-
   padding-left: 7.813vw; /* Add padding to the left */
   border-bottom: 0.5px solid rgb(128, 128, 128);
-  font-family: "Inter", sans-serif;
   font-weight: 500;
 }
 
@@ -38,7 +119,7 @@ nav a {
   display: inline-block;
   padding: 0.1vw 1vw;
   color: rgb(0, 0, 0);
-  font-size: 1.25rem;
+  font-size: 1rem;
   text-decoration: none;
   font-weight: 750;
 }
@@ -48,7 +129,7 @@ nav a:hover {
 }
 
 .nav-icons {
-  display: inline-block;
+  display: flex;
 }
 
 .nav-icons:hover {
@@ -60,7 +141,7 @@ nav a:hover {
 }
 
 .nav-icons i {
-  font-size: 30px; /* Example size, adjust as needed */
+  font-size: 1.5rem; /* Example size, adjust as needed */
 }
 
 nav img {
@@ -87,7 +168,7 @@ nav img {
 }
 
 .search-form button {
-  padding: 6px 10px;
+  padding: 0.5vw 0.8vw;
   border: 1px solid #ccc;
   border: none; /* Removes border */
   cursor: pointer;
@@ -213,13 +294,6 @@ footer {
 }
 
 /* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev,
-  .next,
-  .text {
-    font-size: 11px;
-  }
-}
 
 .info {
   margin: 20px;
@@ -485,7 +559,6 @@ input[type="checkbox"]:checked + label:before {
 
 @media screen and (max-width: 960px) {
   .search-form button {
-    padding: 0;
     margin-right: 5px;
   }
 
@@ -519,5 +592,11 @@ input[type="checkbox"]:checked + label:before {
   .content-container {
     display: flex;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 500px) {
+  .search-form {
+    display: none;
   }
 }

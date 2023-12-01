@@ -7,113 +7,25 @@
     <link rel="stylesheet" href="stylesheet.css" />
     <script defer src="app.js"></script>
     <title>Entr</title>
-    <style>
-      .nav > .nav-header {
-        flex: 0.95;
-        padding-left: 1rem;
-      }
-      .nav > .nav-header > .nav-title {
-        font-size: 22px;
-        color: #fff;
-      }
-      .nav > .nav-list {
-        display: flex;
-        gap: 2rem;
-      }
-      .nav > .nav-list > li {
-        list-style-type: none;
-      }
-      .nav > .nav-list > li a {
-        text-decoration: none;
-        color: #efefef;
-        cursor: pointer;
-      }
-      .nav > #nav-check {
-        display: none;
-      }
-
-      .nav-right-section {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end; /* Aligns items to the right */
-        flex-grow: 1; /* Takes up remaining space */
-      }
-      @media (max-width: 960px) {
-        .nav {
-          padding: 1rem;
-        }
-        .nav > .nav-btn {
-          display: inline-block;
-          position: absolute;
-          right: 0;
-          top: 0;
-          padding-top: 0.2rem;
-        }
-        .nav > .nav-btn > label {
-          display: inline-block;
-          width: 50px;
-          height: 50px;
-          padding: 13px;
-        }
-        .nav > .nav-btn > label > span {
-          display: block;
-          width: 25px;
-          height: 10px;
-          border-top: 2px solid #eee;
-        }
-        .nav > .nav-list {
-          position: absolute;
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          width: 100%;
-          background-color: #1a237e;
-          height: 0;
-          transition: all 0.3s ease-in;
-          top: 40px;
-          left: 0;
-          overflow: hidden;
-        }
-        .nav > .nav-list > li {
-          width: 100%;
-          margin-top: 1.5rem;
-        }
-        .nav > #nav-check:checked ~ .nav-list {
-          height: calc(100vh - 50px);
-        }
-      }
-    </style>
+    <style></style>
   </head>
 
   <body>
-    <!-- headline in case there are any sales/promotions -->
-    <section class="sales">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </section>
-
     <!-- nav bar -->
     <nav class="nav">
-      <div>
-        <a href="index.html" class="nav-title"
-          ><img src="images/Entr-logos/Entr-logos_transparent.png" alt="Logo"
-        /></a>
+      <input type="checkbox" id="nav-check" />
+      <a href="index.html" class="nav-logo"
+        ><img src="images/Entr-logos/Entr-logos_transparent.png" alt="Logo"
+      /></a>
 
-        <div class="nav-btn">
-          <label for="nav-check">
-            <span></span>
-            <span></span>
-            <span></span>
-          </label>
-        </div>
-        <ul class="nav-list">
-          <li><a href="shopping.html">Men</a></li>
-          <li><a href="shopping.html">Women</a></li>
-          <li><a href="shopping.html">Kids</a></li>
-          <li><a href="instagram.com">Sale</a></li>
-          <li><a href="reddit.com">What's New</a></li>
-          <li><a href="aboutus.html">About Us</a></li>
-        </ul>
-      </div>
+      <ul class="nav-list">
+        <li><a href="shopping.html">Men</a></li>
+        <li><a href="shopping.html">Women</a></li>
+        <li><a href="shopping.html">Kids</a></li>
+        <li><a href="instagram.com">Sale</a></li>
+        <li><a href="reddit.com">What's New</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+      </ul>
 
       <!-- search bar -->
       <div class="nav-right-section">
@@ -126,6 +38,13 @@
           <a href="#favourites"><i class="fa-solid fa-heart"></i></a>
           <a href="#account"><i class="fa-solid fa-user"></i></a>
           <a href="#shopping"><i class="fa-solid fa-bag-shopping"></i></a>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
         </div>
       </div>
     </nav>
