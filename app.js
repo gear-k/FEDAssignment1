@@ -14,14 +14,6 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll(".hidden");
 hiddenElements.forEach((el) => observer.observe(el)); // Observing each hidden element
 
-function openNav() {
-  document.getElementById("myNav").style.width = "100%"; // Open the overlay to full width
-}
-
-function closeNav() {
-  document.getElementById("myNav").style.width = "0%"; // Close the overlay
-}
-
 // slideshow for index.html
 let slideIndex = 0;
 showSlides();
@@ -42,13 +34,4 @@ function showSlides() {
   slides[slideIndex - 1].style.display = "block";
 
   setTimeout(showSlides, 4000); // Change slide every 4 seconds
-}
-
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
 }

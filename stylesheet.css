@@ -20,7 +20,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 /* nav bar */
+
 nav {
   display: flex;
   align-items: center;
@@ -373,18 +375,6 @@ footer {
 .item-box p {
   font-size: 1rem;
   margin: 0;
-}
-
-.sidebar {
-  position: relative; /* Fix the sidebar's position */
-  width: 14vw; /* Adjust the width as needed */
-  background-color: greenyellow;
-  padding-left: 3.2552vw;
-  transition: left 0.3s ease-in-out; /* Smooth transition */
-}
-
-.sidebar.sidebar-hidden {
-  left: 0; /* Bring the sidebar into view */
 }
 
 .main-layout {
