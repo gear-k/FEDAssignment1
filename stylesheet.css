@@ -478,6 +478,9 @@ footer {
   line-height: 1.5rem;
 }
 
+.item-box h3 {
+  font-weight: 500;
+}
 .item-box p {
   font-size: 0.9rem;
 }
@@ -840,7 +843,7 @@ strong {
   padding: 10px;
   box-sizing: border-box;
 }
-.contact-form input[type="submit"] {
+.contact-form input[type="button"] {
   width: auto;
   padding: 10px 20px;
   cursor: pointer;
@@ -861,7 +864,7 @@ strong {
   text-align: left; /* Aligns the text to the left */
 }
 /* contactus submit button */
-.contact-form input[type="submit"] {
+.contact-form input[type="button"] {
   background-color: #cdf0ea;
   color: rgb(0, 0, 0);
   border: none;
