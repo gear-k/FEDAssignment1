@@ -13,6 +13,20 @@ window.addEventListener("resize", adjustNavListPosition);
 // Initial adjustment
 window.onload = adjustNavListPosition;
 
+// changing image for itempage.html
+const activeImage = document.querySelector(".product-image .active");
+const productImages = document.querySelectorAll(".image-list img");
+
+function changeImage(e) {
+  activeImage.src = e.target.src;
+}
+
+function toggleNavigation() {
+  this.nextElementSibling.classList.toggle("active");
+}
+
+productImages.forEach((image) => image.addEventListener("click", changeImage));
+
 /* this is for when the user scrolls to, the user will see the text fade in (index.html)*/
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -56,18 +70,3 @@ function toggleSidebar() {
   var sidebar = document.getElementById("sidebar");
   sidebar.classList.toggle("active");
 }
-
-// changing image for itempage.html
-const activeImage = document.querySelector(".product-image .active");
-const productImages = document.querySelectorAll(".image-list img");
-
-function changeImage(e) {
-  activeImage.src = e.target.src;
-}
-
-function toggleNavigation() {
-  this.nextElementSibling.classList.toggle("active");
-}
-
-productImages.forEach((image) => image.addEventListener("click", changeImage));
-navItem.addEventListener("click", toggleNavigation);
