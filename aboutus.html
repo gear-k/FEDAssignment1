@@ -3,85 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="images/Entr-logos/Entr-logos.jpeg"
+    />
     <link rel="icon" type="image/x-icon" href="logo/Enter-logos.jpeg" />
+    <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="stylesheet.css" />
-
-    <style>
-      .fixed-header {
-        position: relative;
-        left: 0;
-        right: 0;
-        overflow: hidden;
-      }
-
-      .fixed-header video {
-        width: 100%;
-        height: 25rem; /* Height of the image container */
-        object-fit: cover;
-        object-position: center;
-      }
-
-      .centered-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-        font-size: 30px;
-      }
-
-      .content {
-        max-width: 31.25rem;
-        text-align: center;
-        margin: 0 auto;
-        flex: 1 0 auto; /* This will push the footer down */
-        padding: 5vh;
-      }
-
-      .grayscale {
-        filter: grayscale(1);
-        -webkit-filter: grayscale(1);
-        filter: grayscale(100%);
-      }
-    </style>
+    <script defer src="app.js"></script>
+    <title>About Us</title>
   </head>
 
   <body>
-    <nav>
-      <div class="hamburger-menu">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+    <!-- nav bar -->
+    <nav class="nav">
+      <input type="checkbox" id="nav-check" />
+      <a href="index.html" class="nav-logo"
+        ><img src="images/Entr-logos/Entr-logos_transparent.png" alt="Logo"
+      /></a>
 
-      <div class="topnav" id="myTopnav">
-        <a href="index.html"
-          ><img src="images/Entr-logos/Entr-logos_transparent.png" alt="Logo"
-        /></a>
-        <a href="shopping.html">Men</a>
-        <a href="youtube.com">Women</a>
-        <a href="twitter.com">Kids</a>
-        <a href="instagram.com">Sale</a>
-        <a href="reddit.com">What's New</a>
-        <a href="aboutus.html">About Us</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-          <i class="fa fa-bars"></i>
-        </a>
-      </div>
+      <ul class="nav-list">
+        <li><a href="shopping.html">Men</a></li>
+        <li><a href="shopping.html">Women</a></li>
+        <li><a href="shopping.html">Kids</a></li>
+        <li><a href="shopping.html">Sale</a></li>
+        <li><a href="shopping.html">What's New</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+      </ul>
 
       <!-- search bar -->
-      <form class="search-form">
-        <input type="text" placeholder="Search..." id="searchInput" />
-        <button type="submit" onclick="toggleSearchInput(event)">
-          <i class="fa fa-search"></i>
-        </button>
-      </form>
-      <!-- Font Awesome Icons -->
-      <div class="nav-icons">
-        <a href="#favourites"><i class="fa-solid fa-heart"></i></a>
-        <a href="#account"><i class="fa-solid fa-user"></i></a>
-        <a href="#shopping"><i class="fa-solid fa-bag-shopping"></i></a>
+      <div class="nav-right-section">
+        <form class="search-form">
+          <input type="text" placeholder="Search..." id="searchInput" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <!-- Font Awesome Icons -->
+        <div class="nav-icons">
+          <a href="#favourites"><i class="fa-solid fa-heart"></i></a>
+          <a href="#account"><i class="fa-solid fa-user"></i></a>
+          <a href="#shopping"><i class="fa-solid fa-bag-shopping"></i></a>
+          <div class="nav-btn">
+            <label for="nav-check">
+              <i class="fa-solid fa-bars"></i>
+            </label>
+          </div>
+        </div>
       </div>
     </nav>
 
@@ -104,7 +71,6 @@
         respectful of our planet.
       </p>
     </div>
-
     <footer>
       <div class="footer-social">
         <a href="your-facebook-url" class="social-icon"
@@ -119,34 +85,12 @@
       </div>
 
       <div class="footer-info">
-        <p>© 2023 Geardan</p>
+        <p>© 2023 Entr</p>
       </div>
 
       <div class="footer-contact">
-        <a href="contact-page-url">Contact Us</a>
+        <a href="contact.html">Contact Us</a>
       </div>
     </footer>
-    <script>
-      function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-          x.className += " responsive";
-        } else {
-          x.className = "topnav";
-        }
-      }
-
-      function toggleSearchInput(event) {
-        var searchForm = document.querySelector(".search-form");
-        if (searchForm.classList.contains("expanded")) {
-          // If the form is already expanded, allow the form to submit
-          return true;
-        } else {
-          // Prevent form submission and show input field
-          event.preventDefault();
-          searchForm.classList.add("expanded");
-        }
-      }
-    </script>
   </body>
 </html>

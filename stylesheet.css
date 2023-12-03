@@ -1,6 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300&family=Playfair+Display:wght@500&display=swap");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
-@import url("https://fonts.googleapis.com/css?family=Pontano+Sans");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"); /* font awesome */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300&family=Lato&family=Playfair+Display:wght@500&family=Roboto:wght@400;500&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -12,20 +11,64 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #fdfdfd;
+  background-color: #f9f9f9;
   min-height: 100vh; /* 100% of the viewport height */
-  font-family: "Pontano Sans", sans-serif;
-  font-size: 1.125rem;
-  line-height: 1.5;
+  font-size: 1rem;
   display: flex;
+  font-family: "Roboto", sans-serif; /* default font */
   flex-direction: column;
 }
 
 /* nav bar */
 
+nav {
+  display: flex;
+  align-items: center;
+  background: #cdf0ea;
+  padding-left: 7.813vw; /* Add padding to the left */
+  text-decoration: none;
+  font-family: "Helvetica", sans-serif; /* navigation font */
+  font-weight: 650;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.1vw 1vw;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+.nav > .nav-list > li > a:hover {
+  color: #ffffff;
+}
+.nav-icons {
+  display: flex;
+}
+
+.nav-icons a {
+  margin-left: 0.5vw; /* Spacing between icons */
+}
+
+.nav-icons i {
+  font-size: 1.5rem; /* Example size, adjust as needed */
+}
+
+nav img {
+  margin-right: 2vw; /* Add some space after the logo, if needed */
+  vertical-align: middle;
+  width: auto;
+  height: 5vw;
+}
+
 .nav-logo img {
-  width: 8vw;
+  width: 5vw;
   height: auto;
+  padding: 0;
+  margin: 0;
 }
 .nav > .nav-list {
   display: flex;
@@ -52,104 +95,65 @@ body {
 
 .nav-icons {
   gap: 10px;
+  margin: 0;
+  padding: 0;
 }
+
+.nav-btn {
+  display: none;
+}
+
 @media (max-width: 960px) {
-  .nav-right-section {
-    flex-wrap: wrap;
-  }
-  .nav-btn,
-  .nav-icons {
-    flex: 1; /* Allows both elements to share the available space */
-  }
-  .nav {
-    padding: 1rem;
-  }
-  .nav > .nav-btn {
+  .nav-btn {
     display: flex;
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding-top: 1rem;
   }
-  .nav > .nav-btn > label {
+
+  .nav-btn i {
+    cursor: pointer;
+    font-size: 1.5 rem;
+  }
+  .nav-logo img {
+    width: 13vw;
+  }
+  .nav-icons {
+    padding-right: 10px;
+  }
+
+  .nav > .nav-right-section > .nav-btn {
+    position: absolute;
+  }
+  .nav > .nav-right-section > .nav-btn > label {
     display: inline-block;
     width: 50px;
     height: 50px;
     padding: 13px;
   }
-  .nav > .nav-btn > label > span {
-    display: block;
-    width: 25px;
-    height: 10px;
-    border-top: 2px solid #000000;
-  }
+
   .nav > .nav-list {
     position: absolute;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #cdf0ea;
     height: 0;
     transition: all 0.3s ease-in;
-    top: 40px;
     left: 0;
     overflow: hidden;
     z-index: 1000;
   }
   .nav > .nav-list > li {
     width: 100%;
+  }
+  .nav > .nav-list > li:first-child {
     margin-top: 1.5rem;
   }
+
   .nav > #nav-check:checked ~ .nav-list {
-    height: calc(100vh - 50px);
+    height: 250px;
   }
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  background: #f7f4ea;
-  padding-left: 7.813vw; /* Add padding to the left */
-  border-bottom: 0.5px solid rgb(128, 128, 128);
-  font-weight: 500;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0.1vw 1vw;
-  color: rgb(0, 0, 0);
-  font-size: 1rem;
-  text-decoration: none;
-  font-weight: 750;
-}
-
-nav a:hover {
-  color: #604ce4;
-}
-
-.nav-icons {
-  display: flex;
-}
-
-.nav-icons:hover {
-  color: #604ce4;
-}
-
-.nav-icons a {
-  margin-left: 0.5vw; /* Spacing between icons */
-}
-
-.nav-icons i {
-  font-size: 1.5rem; /* Example size, adjust as needed */
-}
-
-nav img {
-  margin-right: 2vw; /* Add some space after the logo, if needed */
-  vertical-align: middle;
-  width: auto;
-  height: 5vw;
-}
 /* search form  */
 .search-form {
   display: flex;
@@ -169,7 +173,6 @@ nav img {
 
 .search-form button {
   padding: 0.5vw 0.8vw;
-  border: 1px solid #ccc;
   border: none; /* Removes border */
   cursor: pointer;
   background-color: #f5f5f5;
@@ -225,7 +228,7 @@ footer {
 }
 
 .sales {
-  background-color: #604ce4;
+  background-color: #cdf0ea;
   color: white;
   text-align: center;
 
@@ -281,7 +284,23 @@ footer {
   filter: brightness(50%);
 }
 
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 4.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* Caption text */
+
 .slideshow-text {
   position: absolute;
   top: 50%;
@@ -291,6 +310,8 @@ footer {
   font-size: 1.25rem; /* Adjust font size as needed */
   text-align: center;
   z-index: 10; /* Ensure text is above the images */
+  font-family: "Lato", sans-serif;
+  letter-spacing: -1px;
 }
 
 /* On smaller screens, decrease text size */
@@ -303,7 +324,7 @@ footer {
 }
 
 .top-images {
-  text-align: left;
+  text-align: center;
   padding-top: 5.25vw;
 }
 
@@ -321,8 +342,8 @@ footer {
 
 .top-images p,
 .top-images a .top-images h2 {
+  text-align: center;
   font-size: 1rem;
-  text-align: left;
   width: 100%;
   margin-bottom: 30px;
   font-family: "DM Sans", sans-serif;
@@ -337,14 +358,16 @@ footer {
 }
 
 .button {
-  background-color: #604ce4;
+  background-color: #cdf0ea;
   border: none;
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 1vw 2vw;
   text-align: center;
   text-decoration: none;
   font-size: 1rem;
   margin: 4px 2px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 600;
 }
 
 .button:hover {
@@ -352,26 +375,27 @@ footer {
   /* Changes to grey when hovered */
 }
 
-#middletext {
+#index-middletext {
   text-align: center;
   padding: 50px;
   font-family: "DM Sans", sans-serif;
   line-height: 6.5vh;
+  padding-bottom: -100px;
 }
 
-#middletext h1 {
+#index-middletext h1 {
   font-size: 3rem;
   margin-bottom: 10px;
   /* Reduce the bottom margin */
-  letter-spacing: -1.6px;
+  letter-spacing: -0.2px;
 }
 
-#middletext h2 {
+#index-middletext h2 {
   margin-top: 0;
   /* Remove top margin */
 }
 
-#middletext p {
+#index-middletext p {
   margin-top: 0;
   /* Remove top margin */
 }
@@ -402,11 +426,13 @@ footer {
   /* Removed position:absolute and related properties */
   color: rgb(0, 0, 0);
   /* Text color */
-  font-size: 13px;
+  font-size: 11px;
   /* Text size */
   padding: 5px 10px;
   /* Padding around text */
-  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
   display: block;
   /* Ensures the text is on a new line below the image */
   text-align: center;
@@ -423,18 +449,17 @@ footer {
   flex-wrap: wrap;
   flex-grow: 1;
   width: 0vw; /* Adjust based on sidebar width */
-  background-color: yellow;
   justify-content: flex-start;
 }
 
 .item-box {
   display: flex;
   flex-direction: column;
-  background-color: blue;
   margin: 0.65vw;
   text-align: left;
   flex-basis: 25vw;
   overflow: hidden; /* Hide the overflow */
+  font-family: "Roboto", sans-serif;
 }
 
 .item-box img {
@@ -449,114 +474,99 @@ footer {
 .item-box p {
   font-size: 1rem;
   margin: 0;
+  padding: 0;
+  line-height: 1.5rem;
+}
+
+.item-box p {
+  font-size: 0.9rem;
+}
+
+.item-box h4 {
+  margin-top: 8px;
 }
 
 .main-layout {
   display: flex;
 }
 
-.filter-group input[type="checkbox"] {
-  appearance: none;
-  /* This disables the default styling of radio buttons */
-  -webkit-appearance: none;
-  /* For Safari and older Chrome browsers */
-  -moz-appearance: none;
-  /* For Firefox */
-  display: none;
-  /* Hides the input */
-}
-
-/* Custom radio button style */
-.filter-group label {
-  position: relative;
-  padding-left: 35px;
-  /* increase gap between checkbox and word */
+#sidebarToggle {
+  display: none; /* Hidden by default */
+  right: 0px;
   cursor: pointer;
+  padding: 8px 15px 8px;
+  color: rgb(0, 0, 0);
+  background-color: #ffffff;
+  font-size: 0.9rem;
+  margin-right: 20px;
+  margin-left: auto; /* Center the button horizontally */
+  margin-top: 4px;
 }
 
-.filter-group label:before {
-  content: "";
-  position: absolute;
-  left: 0;
+.sidebar {
+  width: 15vw;
+  position: relative;
+  left: 0; /* Show sidebar by default */
   top: 0;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #ccc;
-  background-color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s;
 }
 
-input[type="checkbox"]:checked + label:before {
-  background-color: #604ce4;
+.sidebar.active {
+  height: 100%; /* Expand to show content */
+  top: 0;
 }
 
-.filter-group h4 {
-  /* to adjust the gap between the h4 and the buttons */
-  margin-bottom: -5px;
+.sidebar h2 {
+  color: #333;
 }
 
-.filter-group ul {
-  list-style: none;
+.sidebar .filter-section ul {
+  list-style-type: none;
   padding: 0;
 }
 
-#filter-toggle {
-  display: none; /* Hide toggle button by default */
-  position: absolute; /* Position the button absolutely within the wrapper */
-  top: 10px; /* Adjust as needed for spacing from the top */
-  right: 10px; /* Adjust as needed for spacing from the right */
+.sidebar .filter-section li {
+  margin-bottom: 8px;
 }
 
-.filter-toggle-wrapper {
-  display: none; /* Hide wrapper by default */
-  padding: 20px; /* Add padding for spacing, adjust as needed */
-  background-color: #604ce4;
-  position: relative; /* Add this to position the button absolutely within it */
-  z-index: 101;
+.sidebar .filter-section label {
+  margin-left: 5px;
 }
 
-.overlay {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.9);
-  overflow-x: hidden;
-  transition: 0.5s;
+.close-btn {
   display: none;
-}
-
-.overlay-content {
-  position: relative;
-  top: 25%;
-  width: 100%;
-  text-align: center;
-  margin-top: 30px;
-}
-
-.overlay a {
-  padding: 8px;
-  text-decoration: none;
-  font-size: 36px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.overlay a:hover,
-.overlay a:focus {
-  color: #f1f1f1;
-}
-
-.overlay .closebtn {
   position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
+  top: 0;
+  right: 0;
+  padding: 10px 15px;
+  font-size: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
+/* Responsive adjustments */
+@media screen and (max-width: 960px) {
+  .close-btn {
+    display: block;
+  }
+  .sidebar {
+    width: 100%;
+    height: 0;
+    top: -300px;
+    position: absolute;
+    overflow: hidden;
+    background-color: #cdf0ea;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: height 0.8s cubic-bezier(0.25, 0.1, 0, 1.13);
+    z-index: 2;
+  }
+  #sidebarToggle {
+    display: flex; /* Show button on small screens */
+  }
+}
 @media screen and (max-width: 960px) {
   .search-form button {
     margin-right: 5px;
@@ -566,9 +576,7 @@ input[type="checkbox"]:checked + label:before {
     width: 80vw;
     height: auto;
   }
-  .overlay {
-    display: block; /* Show overlay on small screens */
-  }
+
   .item-box {
     flex-basis: 48.5%; /* 2 images per row for smaller screens */
   }
@@ -577,9 +585,6 @@ input[type="checkbox"]:checked + label:before {
     height: 47.8vw; /* Maintain aspect ratio */
   }
 
-  .sidebar {
-    display: block;
-  }
   .filter-toggle-wrapper {
     display: block; /* Show wrapper on small screens */
   }
@@ -595,8 +600,276 @@ input[type="checkbox"]:checked + label:before {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 520px) {
   .search-form {
     display: none;
   }
+}
+
+/* itempage.html */
+
+#product-gallery ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.column-item h1,
+.column-item h2 {
+  color: #333;
+  font-weight: normal;
+  margin: 1.75rem 0 1rem 0;
+}
+.column-item h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+.column-item h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.itempage-description p {
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+}
+
+.product-image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center 60%; /* Adjusts the position of the image */
+}
+
+.image-item img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center 60%; /* Adjusts the position of the image */
+}
+.itempage-description {
+  border-top: 0.0625rem solid #e3dddd;
+  margin: 2rem 0;
+  padding: 1rem 0 0 0;
+  line-height: 1.5rem;
+}
+.add-to-cart {
+  position: relative;
+  display: inline-block;
+  background: #cdf0ea;
+  color: #000000;
+  border: none;
+  border-radius: 0;
+  padding: 1.25rem 2.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  width: 200px; /* Set a specific width */
+  margin-bottom: 5px;
+}
+
+.shrink {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.shrink:hover {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+}
+
+.itempage-container {
+  margin: auto;
+  padding: 0 1rem;
+  max-width: 65rem;
+  width: 100%;
+  display: block;
+  margin-top: 20px;
+}
+.grid > .column-item {
+  padding: 1rem;
+}
+.grid.menu,
+.grid.product {
+  border-bottom: 0.0625rem solid #e3dddd;
+}
+.grid.menu > .column-item {
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+.grid.product {
+  padding: 0 0 1.5rem 0;
+}
+.grid.second-nav > .column-item {
+  padding: 0.5rem 1rem;
+}
+
+.product-image {
+  display: none;
+}
+.image-list li {
+  margin: 0;
+}
+
+@media (min-width: 961px) {
+  /* code that is running rn */
+  .product-image img,
+  .image-list img {
+    width: 100%;
+  }
+  .product-image {
+    display: block;
+  }
+  .product-image img {
+    height: 100vh;
+  }
+  .product-image img.active {
+    display: block;
+    margin: 0 0 0.75rem 0;
+  }
+  .image-list {
+    display: flex;
+    overflow: hidden;
+  }
+  .image-list li {
+    margin: 0 0.75rem 0 0;
+    flex-basis: 100%;
+  }
+  .image-list li:nth-child(3) {
+    margin: 0;
+  }
+  .image-list img {
+    height: 10rem;
+    width: 100%;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+  }
+  .image-list img:hover {
+    opacity: 0.7;
+  }
+}
+
+/* about us */
+.fixed-header {
+  position: relative;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.fixed-header video {
+  width: 100%;
+  height: 25rem; /* Height of the image container */
+  object-fit: cover;
+  object-position: center;
+}
+
+.centered-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 30px;
+}
+
+.content {
+  max-width: 35.25rem;
+  text-align: center;
+  margin: 0 auto;
+  flex: 1 0 auto; /* This will push the footer down */
+  padding: 5vh;
+  line-height: 1.5rem;
+}
+
+.grayscale {
+  filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+  filter: grayscale(100%);
+}
+
+/* contact.html */
+strong {
+  font-weight: 600;
+}
+.main-container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+.content-container {
+  display: flex;
+  justify-content: space-between;
+}
+.left-column,
+.right-column {
+  flex: 1;
+  padding: 20px;
+}
+
+.right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1rem;
+}
+.contact-info,
+.business-hours {
+  margin-bottom: 20px;
+}
+.contact-form form {
+  max-width: 500px;
+  margin: auto;
+}
+.contact-form label {
+  display: block;
+  text-align: left;
+  margin-bottom: -20px; /* Adjust this value as needed for consistent spacing */
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.contact-form input[type="submit"] {
+  width: auto;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.name-fields {
+  display: flex;
+  gap: 10px; /* Space between first name and last name fields */
+  box-sizing: border-box;
+}
+.name-field {
+  flex: 1;
+}
+
+.name-field label {
+  padding-top: 10px;
+  padding-bottom: 22px;
+  text-align: left; /* Aligns the text to the left */
+}
+/* contactus submit button */
+.contact-form input[type="submit"] {
+  background-color: #cdf0ea;
+  color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 550;
+}
+#contact-message {
+  height: 25vh;
 }

@@ -1,4 +1,19 @@
-/* this is for when the user scrolls to, the user will see the text fade in */
+// nav bar
+function adjustNavListPosition() {
+  var navbar = document.querySelector(".nav"); // Replace '.nav' with your navbar's class or ID
+  var navList = document.querySelector(".nav-list");
+  var navbarHeight = navbar.offsetHeight;
+
+  navList.style.top = navbarHeight - 19 + "px";
+}
+
+// Adjust position on window resize
+window.addEventListener("resize", adjustNavListPosition);
+
+// Initial adjustment
+window.onload = adjustNavListPosition;
+
+/* this is for when the user scrolls to, the user will see the text fade in (index.html)*/
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     console.log(entry);
@@ -33,19 +48,27 @@ function showSlides() {
 
   slides[slideIndex - 1].style.display = "block";
 
-  setTimeout(showSlides, 4000); // Change slide every 4 seconds
+  setTimeout(showSlides, 8000); // Change slide every 4 seconds
 }
 
-// ---- ---- Const ---- ---- //
-let inputBox = document.querySelector(".input-box"),
-  searchIcon = document.querySelector(".search"),
-  closeIcon = document.querySelector(".close-icon");
+// sidebar for shopping.html
+function toggleSidebar() {
+  var sidebar = document.getElementById("sidebar");
+  sidebar.classList.toggle("active");
+}
 
-// ---- ---- Open Input ---- ---- //
-searchIcon.addEventListener("click", () => {
-  inputBox.classList.add("open");
-});
-// ---- ---- Close Input ---- ---- //
-closeIcon.addEventListener("click", () => {
-  inputBox.classList.remove("open");
-});
+// changing image for itempage.html
+const activeImage = document.querySelector(".product-image .active");
+const productImages = document.querySelectorAll(".image-list img");
+const navItem = document.querySelector("a.toggle-nav");
+
+function changeImage(e) {
+  activeImage.src = e.target.src;
+}
+
+function toggleNavigation() {
+  this.nextElementSibling.classList.toggle("active");
+}
+
+productImages.forEach((image) => image.addEventListener("click", changeImage));
+navItem.addEventListener("click", toggleNavigation);
