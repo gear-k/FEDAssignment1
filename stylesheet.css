@@ -44,11 +44,11 @@ nav a {
 }
 
 nav a:hover {
-  color: #ffffff;
+  color: #ff6f61;
 }
 
 .nav > .nav-list > li > a:hover {
-  color: #ffffff;
+  color: #ff6f61;
 }
 
 .nav-icons {
@@ -261,7 +261,7 @@ footer {
   transform: translate(-50%, -50%);
   color: #fff;
   /* Choose a text color that stands out */
-  font-size: 1.25rem;
+  font-size: 1rem;
   /* Adjust font size as needed */
   text-align: center;
   z-index: 10;
@@ -596,7 +596,6 @@ footer {
 
 .itempage-container {
   margin: auto;
-  padding: 0 1rem;
   max-width: 65rem;
   width: 100%;
   display: block;
@@ -607,7 +606,7 @@ footer {
   padding: 1rem;
 }
 
-.grid {
+.grid.product {
   border-bottom: 0.0625rem solid #e3dddd;
   padding: 0 0 1.5rem 0;
 }
@@ -771,6 +770,7 @@ strong {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: height 0.8s cubic-bezier(0.25, 0.1, 0, 1.13);
     z-index: 2;
+    padding: 6px;
   }
 
   #sidebarToggle {
